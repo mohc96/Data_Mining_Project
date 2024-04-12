@@ -1,0 +1,44 @@
+# import numpy as np
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+# import joblib
+
+# # Flatten the images
+# x_train_flattened = x_train.reshape(x_train.shape[0], -1)
+# x_test_flattened = x_test.reshape(x_test.shape[0], -1)
+
+# # Train the RandomForest model
+# model = RandomForestClassifier(n_estimators=100, random_state=0)
+# model.fit(x_train_flattened, y_train)
+
+# # Predictions
+# y_pred = model.predict(x_test_flattened)
+
+# # Print shapes and content
+# print("y_test shape:", y_test.shape)
+# print("y_test first 5 entries:", y_test[:5])
+# print("y_pred shape:", y_pred.shape)
+# print("y_pred first 5 entries:", y_pred[:5])
+
+# if y_test.ndim > 1:
+#     print("y_test is one-hot encoded.")
+#     y_test = np.argmax(y_test, axis=1)  # converting from one-hot to labels if necessary
+# else:
+#     print("y_test is not one-hot encoded.")
+
+# # Model evaluation
+# accuracy = accuracy_score(y_test, y_pred)
+# print("Accuracy:", accuracy)
+# print(classification_report(y_test, y_pred))
+
+# # Confusion matrix
+# cm = confusion_matrix(y_test, y_pred)
+# plt.figure(figsize=(14,10))
+# sns.heatmap(cm, annot=True)
+# plt.show()
+
+# # Save the model
+# joblib.dump(model, 'sign_language_rf_model.pkl')
+# print('Model saved')
